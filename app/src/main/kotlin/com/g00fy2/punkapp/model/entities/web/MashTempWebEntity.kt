@@ -4,6 +4,6 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class MashTempWebEntity(
-        val temp: MeasurementWebEntity,
-        val duration: Int?
+  val temp: MeasurementWebEntity,
+  val duration: Int?
 )

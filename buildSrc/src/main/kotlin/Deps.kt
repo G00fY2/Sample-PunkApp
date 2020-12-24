@@ -1,0 +1,46 @@
+object Deps {
+
+  object AndroidX {
+    const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
+    const val core = "androidx.core:core-ktx:${Versions.core}"
+    const val activity = "androidx.activity:activity:${Versions.activity}"
+    const val fragment = "androidx.fragment:fragment:${Versions.fragment}"
+    const val lifecycle = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle}"
+    const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
+    const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+  }
+
+  object Kotlin {
+    const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+  }
+
+  object UI {
+    const val materialDesign = "com.google.android.material:material:${Versions.materialDesign}"
+    const val coil = "io.coil-kt:coil:${Versions.coil}"
+  }
+
+  object Moshi {
+    const val moshi = "com.squareup.moshi:moshi:${Versions.moshi}"
+    const val moshiCompiler = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
+  }
+
+  object OkHttp {
+    const val bom = "com.squareup.okhttp3:okhttp-bom:${Versions.okHttp}"
+    const val okHttp = "com.squareup.okhttp3:okhttp"
+    const val interceptor = "com.squareup.okhttp3:logging-interceptor"
+  }
+
+  object Retrofit {
+    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val moshiConverter = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
+  }
+
+  object Dagger {
+    const val daggerHilt = "com.google.dagger:hilt-android:${Versions.daggerHilt}"
+    const val daggerHiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.daggerHilt}"
+  }
+
+  object Misc {
+    const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
+  }
+}

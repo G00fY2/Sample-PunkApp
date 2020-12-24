@@ -10,7 +10,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.logging.HttpLoggingInterceptor.Level
@@ -19,39 +19,39 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import timber.log.Timber
 
 @Module(includes = [BackendStaticModule::class])
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 abstract class BackendModule {
 
-    @Binds
-    abstract fun provideBeerDatastore(beerDatastoreImpl: BeerDatastoreImpl): BeerDatastore
+  @Binds
+  abstract fun provideBeerDatastore(beerDatastoreImpl: BeerDatastoreImpl): BeerDatastore
 
-    @Binds
-    abstract fun provideBeerTransformer(beerTransformerImpl: BeerTransformerImpl): BeerTransformer
+  @Binds
+  abstract fun provideBeerTransformer(beerTransformerImpl: BeerTransformerImpl): BeerTransformer
 }
 
 @Module
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 object BackendStaticModule {
 
-    @Provides
-    fun provideOkHttpClient(): OkHttpClient {
-        return OkHttpClient.Builder()
-                .addNetworkInterceptor(
-                        HttpLoggingInterceptor { message -> Timber.tag("OkHttp").d(message) }
-                                .setLevel(if (BuildConfig.DEBUG) Level.BODY else Level.NONE)
-                )
-                .build()
-    }
+  @Provides
+  fun provideOkHttpClient(): OkHttpClient {
+    return OkHttpClient.Builder()
+      .addNetworkInterceptor(
+        HttpLoggingInterceptor { message -> Timber.tag("OkHttp").d(message) }
+          .setLevel(if (BuildConfig.DEBUG) Level.BODY else Level.NONE)
+      )
+      .build()
+  }
 
-    @Provides
-    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
-        return Retrofit.Builder()
-                .baseUrl(BuildConfig.BASE_URL)
-                .client(okHttpClient)
-                .addConverterFactory(MoshiConverterFactory.create())
-                .build()
-    }
+  @Provides
+  fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
+    return Retrofit.Builder()
+      .baseUrl(BuildConfig.BASE_URL)
+      .client(okHttpClient)
+      .addConverterFactory(MoshiConverterFactory.create())
+      .build()
+  }
 
-    @Provides
-    fun provideBeerDatasource(retrofit: Retrofit): BeerDatasource = retrofit.create(BeerDatasource::class.java)
+  @Provides
+  fun provideBeerDatasource(retrofit: Retrofit): BeerDatasource = retrofit.create(BeerDatasource::class.java)
 }

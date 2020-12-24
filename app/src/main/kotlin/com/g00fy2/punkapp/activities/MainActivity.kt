@@ -5,35 +5,34 @@ import com.g00fy2.punkapp.base.BaseActivity
 import com.g00fy2.punkapp.databinding.ActivityMainBinding
 import com.g00fy2.punkapp.model.datastore.BeerDatastore
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import timber.log.Timber
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity() {
 
-    @Inject
-    lateinit var beerDatastore: BeerDatastore
+  @Inject
+  lateinit var beerDatastore: BeerDatastore
 
-    override val binding: ActivityMainBinding by viewBinding(ActivityMainBinding::inflate)
+  override val binding: ActivityMainBinding by viewBinding(ActivityMainBinding::inflate)
 
-    override fun initView() {
+  override fun initView() {
+  }
 
-    }
-
-    override fun onResume() {
-        super.onResume()
-        lifecycleScope.launch {
-            try {
-                withContext(Dispatchers.IO) { beerDatastore.getAllBeers() }.let {
-                    binding.testTextview.text = it.joinToString { beer -> beer.name }
-                }
-            } catch (e: Exception) {
-                Timber.e(e)
-                binding.testTextview.text = "Error loading data"
-            }
+  override fun onResume() {
+    super.onResume()
+    lifecycleScope.launch {
+      try {
+        withContext(Dispatchers.IO) { beerDatastore.getAllBeers() }.let {
+          binding.testTextview.text = it.joinToString { beer -> beer.name }
         }
+      } catch (e: Exception) {
+        Timber.e(e)
+        binding.testTextview.text = "Error loading data"
+      }
     }
+  }
 }

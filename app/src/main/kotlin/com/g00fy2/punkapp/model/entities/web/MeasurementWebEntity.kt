@@ -4,6 +4,6 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class MeasurementWebEntity(
-        val value: Double,
-        val unit: String,
+  val value: Double,
+  val unit: String,
 )

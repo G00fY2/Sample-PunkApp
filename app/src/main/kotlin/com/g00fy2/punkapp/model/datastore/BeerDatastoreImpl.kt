@@ -7,25 +7,25 @@ import javax.inject.Inject
 
 class BeerDatastoreImpl @Inject constructor() : BeerDatastore {
 
-    @Inject
-    lateinit var beerDatasource: BeerDatasource
+  @Inject
+  lateinit var beerDatasource: BeerDatasource
 
-    @Inject
-    lateinit var beerTransformer: BeerTransformer
+  @Inject
+  lateinit var beerTransformer: BeerTransformer
 
-    override suspend fun getAllBeers(): List<Beer> {
-        return beerDatasource.getAllBeers().map { beerTransformer.toModel(it) }
-    }
+  override suspend fun getAllBeers(): List<Beer> {
+    return beerDatasource.getAllBeers().map { beerTransformer.toModel(it) }
+  }
 
-    override suspend fun getBeers(page: Int, perPage: Int): List<Beer> {
-        return beerDatasource.getBeers(page, perPage).map { beerTransformer.toModel(it) }
-    }
+  override suspend fun getBeers(page: Int, perPage: Int): List<Beer> {
+    return beerDatasource.getBeers(page, perPage).map { beerTransformer.toModel(it) }
+  }
 
-    override suspend fun getBeerByID(id: Int): Beer {
-        return beerDatasource.getBeerByID(id).let { beerTransformer.toModel(it) }
-    }
+  override suspend fun getBeerByID(id: Int): Beer {
+    return beerDatasource.getBeerByID(id).let { beerTransformer.toModel(it) }
+  }
 
-    override suspend fun getRandomBeer(): Beer {
-        return beerDatasource.getRandomBeer().let { beerTransformer.toModel(it) }
-    }
+  override suspend fun getRandomBeer(): Beer {
+    return beerDatasource.getRandomBeer().let { beerTransformer.toModel(it) }
+  }
 }

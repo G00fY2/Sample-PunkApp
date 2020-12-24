@@ -6,16 +6,16 @@ import javax.inject.Inject
 
 class BeerTransformerImpl @Inject constructor() : BeerTransformer {
 
-    override fun toModel(entity: BeerWebEntity): Beer {
-        return with(entity) {
-            Beer(
-                    id = id,
-                    name = name,
-                    tagline = tagline,
-                    first_brewed = first_brewed,
-                    description = description,
-                    image_url = image_url,
-            )
-        }
+  override fun toModel(entity: BeerWebEntity): Beer {
+    return with(entity) {
+      Beer(
+        id = id,
+        name = name,
+        tagline = tagline,
+        first_brewed = first_brewed,
+        description = description,
+        image_url = image_url,
+      )
     }
+  }
 }

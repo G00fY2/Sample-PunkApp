@@ -1,88 +1,92 @@
 plugins {
-    id("com.android.application")
-    kotlin("android")
-    kotlin("kapt")
-    id("dagger.hilt.android.plugin")
+  id(Plugins.Android.application)
+  id(Plugins.Kotlin.android)
+  id(Plugins.Kotlin.kapt)
+  id(Plugins.Misc.daggerHilt)
 }
 
 android {
-    compileSdkVersion(30)
-    buildToolsVersion = "30.0.2"
+  compileSdkVersion(Config.androidCompileSdkVersion)
+  buildToolsVersion = Config.buildToolsVersion
+  defaultConfig {
+    applicationId = Config.applicationId
+    minSdkVersion(Config.androidMinSdkVersion)
+    targetSdkVersion(Config.androidTargetSdkVersion)
+    versionCode = 1
+    versionName = "1.0"
 
-    defaultConfig {
-        applicationId = "com.g00fy2.punkapp"
-        minSdkVersion(26)
-        targetSdkVersion(30)
-        versionCode = 1
-        versionName = "1.0"
-
-        buildConfigField("String", "BASE_URL", "\"https://api.punkapi.com/v2/\"")
+    buildConfigField("String", "BASE_URL", "\"https://api.punkapi.com/v2/\"")
+  }
+  buildTypes {
+    getByName("release") {
+      isShrinkResources = true
+      isMinifyEnabled = true
+      proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
     }
-    buildTypes {
-        getByName("release") {
-            isShrinkResources = false
-            isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-        }
-    }
-    sourceSets {
-        getByName("main").java.srcDirs("src/main/kotlin")
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
-        useIR = true
-    }
-    buildFeatures {
-        viewBinding = true
-        aidl = false
-        renderScript = false
-        resValues = false
-        shaders = false
-    }
+  }
+  buildFeatures {
+    viewBinding = true
+    aidl = false
+    renderScript = false
+    resValues = false
+    shaders = false
+  }
+  sourceSets.getByName("main").java.srcDirs("src/main/kotlin")
+  compileOptions {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+  }
+  kotlinOptions {
+    allWarningsAsErrors = true
+    jvmTarget = JavaVersion.VERSION_1_8.toString()
+    freeCompilerArgs = listOf("-progressive")
+    useIR = true
+  }
 }
 
 repositories {
-    google()
-    mavenCentral()
+  google()
+  mavenCentral()
+  maven("https://dl.bintray.com/kotlin/kotlin-eap")
+  maven("https://kotlin.bintray.com/kotlinx")
 }
 
 dependencies {
-    // Kotlin
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.0-M1")
+  // Kotlin
+  implementation(Deps.Kotlin.coroutines)
 
-    // AndroidX
-    implementation("androidx.appcompat:appcompat:1.3.0-alpha02")
-    implementation("androidx.core:core-ktx:1.5.0-alpha04")
-    implementation("androidx.activity:activity:1.2.0-beta01")
-    implementation("androidx.fragment:fragment:1.3.0-beta01")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.0-beta01")
-    implementation("androidx.recyclerview:recyclerview:1.2.0-alpha06")
-    implementation("androidx.constraintlayout:constraintlayout:2.0.2")
+  // AndroidX
+  implementation(Deps.AndroidX.appcompat)
+  implementation(Deps.AndroidX.core)
+  implementation(Deps.AndroidX.activity)
+  implementation(Deps.AndroidX.fragment)
+  implementation(Deps.AndroidX.lifecycle)
+  implementation(Deps.AndroidX.recyclerView)
+  implementation(Deps.AndroidX.constraintLayout)
 
-    // UI
-    implementation("com.google.android.material:material:1.3.0-alpha03")
-    implementation("io.coil-kt:coil:1.0.0-rc3")
+  // UI
+  implementation(Deps.UI.materialDesign)
+  implementation(Deps.UI.coil)
 
-    // Misc
-    implementation("com.jakewharton.timber:timber:4.7.1")
+  // Misc
+  implementation(Deps.Misc.timber)
 
-    // Web
-    implementation("com.squareup.moshi:moshi:1.11.0")
-    kapt("com.squareup.moshi:moshi-kotlin-codegen:1.11.0")
-    implementation("com.squareup.okhttp3:okhttp:4.10.0-RC1")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0-RC1")
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
+  // Web
+  implementation(platform(Deps.OkHttp.bom))
+  implementation(Deps.OkHttp.okHttp)
+  implementation(Deps.OkHttp.interceptor)
 
-    // Dagger
-    implementation("com.google.dagger:hilt-android:${properties["daggerVersion"]}")
-    kapt("com.google.dagger:hilt-android-compiler:${properties["daggerVersion"]}")
+  implementation(Deps.Retrofit.retrofit)
+  implementation(Deps.Retrofit.moshiConverter)
+
+  implementation(Deps.Moshi.moshi)
+  kapt(Deps.Moshi.moshiCompiler)
+
+  // Dagger
+  implementation(Deps.Dagger.daggerHilt)
+  kapt(Deps.Dagger.daggerHiltCompiler)
 }
 
 kapt {
-    correctErrorTypes = true
+  correctErrorTypes = true
 }

@@ -5,5 +5,5 @@ import com.g00fy2.punkapp.model.entities.web.BeerWebEntity
 
 interface BeerTransformer {
 
-    fun toModel(entity: BeerWebEntity): Beer
+  fun toModel(entity: BeerWebEntity): Beer
 }
