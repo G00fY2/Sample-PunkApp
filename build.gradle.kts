@@ -1,5 +1,4 @@
 import com.android.build.gradle.BaseExtension
-import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -28,19 +27,6 @@ subprojects {
       compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
-      }
-    }
-  }
-}
-
-tasks.named("dependencyUpdates", DependencyUpdatesTask::class.java).configure {
-  gradleReleaseChannel = "current"
-  resolutionStrategy {
-    componentSelection {
-      all {
-        if (Utils.isNonStable(candidate.version) && !Utils.isNonStable(currentVersion)) {
-          reject("Release candidate")
-        }
       }
     }
   }

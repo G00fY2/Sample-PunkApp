@@ -6,12 +6,12 @@ plugins {
 }
 
 android {
-  compileSdkVersion(Config.androidCompileSdkVersion)
-  buildToolsVersion = Config.buildToolsVersion
+  compileSdkVersion(Versions.androidCompileSdk)
+  buildToolsVersion = Versions.androidBuildTools
   defaultConfig {
-    applicationId = Config.applicationId
-    minSdkVersion(Config.androidMinSdkVersion)
-    targetSdkVersion(Config.androidTargetSdkVersion)
+    applicationId = "com.g00fy2.punkapp"
+    minSdkVersion(Versions.androidMinSdk)
+    targetSdkVersion(Versions.androidTargetSdk)
     versionCode = 1
     versionName = "1.0"
 
@@ -32,23 +32,11 @@ android {
     shaders = false
   }
   sourceSets.getByName("main").java.srcDirs("src/main/kotlin")
-  compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
-  }
-  kotlinOptions {
-    allWarningsAsErrors = true
-    jvmTarget = JavaVersion.VERSION_1_8.toString()
-    freeCompilerArgs = listOf("-progressive")
-    useIR = true
-  }
 }
 
 repositories {
   google()
   mavenCentral()
-  maven("https://dl.bintray.com/kotlin/kotlin-eap")
-  maven("https://kotlin.bintray.com/kotlinx")
 }
 
 dependencies {
