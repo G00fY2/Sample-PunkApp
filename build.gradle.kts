@@ -18,8 +18,9 @@ subprojects {
   tasks.withType<KotlinCompile>().configureEach {
     kotlinOptions {
       allWarningsAsErrors = true
-      freeCompilerArgs = listOf("-progressive")
+      freeCompilerArgs = freeCompilerArgs + listOf("-progressive")
       jvmTarget = JavaVersion.VERSION_1_8.toString()
+      useIR = true
     }
   }
   afterEvaluate {

@@ -5,7 +5,6 @@ pluginManagement {
     google()
     gradlePluginPortal()
     mavenCentral()
-    maven("https://dl.bintray.com/kotlin/kotlin-eap")
   }
   resolutionStrategy {
     eachPlugin {
