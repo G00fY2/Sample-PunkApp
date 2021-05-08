@@ -5,11 +5,12 @@ import com.g00fy2.punkapp.base.BaseActivity
 import com.g00fy2.punkapp.databinding.ActivityMainBinding
 import com.g00fy2.punkapp.model.datastore.BeerDatastore
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import timber.log.Timber
+import java.io.IOException
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity() {
@@ -20,6 +21,7 @@ class MainActivity : BaseActivity() {
   override val binding: ActivityMainBinding by viewBinding(ActivityMainBinding::inflate)
 
   override fun initView() {
+    // TODO
   }
 
   override fun onResume() {
@@ -29,7 +31,7 @@ class MainActivity : BaseActivity() {
         withContext(Dispatchers.IO) { beerDatastore.getAllBeers() }.let {
           binding.testTextview.text = it.joinToString { beer -> beer.name }
         }
-      } catch (e: Exception) {
+      } catch (e: IOException) {
         Timber.e(e)
         binding.testTextview.text = "Error loading data"
       }

@@ -1,0 +1,21 @@
+name: Android CI
+
+on:
+  push:
+    branches:
+      - develop
+      - master
+  pull_request:
+    branches:
+      - develop
+      - master
+
+jobs:
+  build_and_detekt:
+    name: Run detekt
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build app and run detekt with ktlint
+        run: ./gradlew assembleDebug detektDebug

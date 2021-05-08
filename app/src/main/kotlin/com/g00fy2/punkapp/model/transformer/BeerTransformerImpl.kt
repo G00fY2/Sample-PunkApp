@@ -12,9 +12,9 @@ class BeerTransformerImpl @Inject constructor() : BeerTransformer {
         id = id,
         name = name,
         tagline = tagline,
-        first_brewed = first_brewed,
+        firstBrewed = firstBrewed,
         description = description,
-        image_url = image_url,
+        imageUrl = imageUrl,
       )
     }
   }

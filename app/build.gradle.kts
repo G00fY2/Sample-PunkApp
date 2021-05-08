@@ -19,7 +19,7 @@ android {
   }
   buildTypes {
     getByName("release") {
-      isShrinkResources = true
+      //isShrinkResources = true
       isMinifyEnabled = true
       proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
     }
@@ -32,11 +32,6 @@ android {
     shaders = false
   }
   sourceSets.getByName("main").java.srcDirs("src/main/kotlin")
-}
-
-repositories {
-  google()
-  mavenCentral()
 }
 
 dependencies {

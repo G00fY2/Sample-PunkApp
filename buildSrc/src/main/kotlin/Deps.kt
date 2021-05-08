@@ -37,7 +37,7 @@ object Deps {
 
   object Dagger {
     const val daggerHilt = "com.google.dagger:hilt-android:${Versions.daggerHilt}"
-    const val daggerHiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.daggerHilt}"
+    const val daggerHiltCompiler = "com.google.dagger:hilt-compiler:${Versions.daggerHilt}"
   }
 
   object Misc {
