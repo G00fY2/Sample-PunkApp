@@ -12,12 +12,12 @@ on:
 
 jobs:
   build_and_detekt:
-    name: Run detekt
+    name: Build app and run detekt with ktlint
     runs-on: ubuntu-20.04
 
     steps:
       - uses: actions/checkout@v2
       - name: Accept licenses for all available packages
-        run: yes | sdkmanager --licenses >/dev/null
-      - name: Build app and run detekt with ktlint
+        run: yes | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --licenses >/dev/null
+      - name: Run gradle tasks
         run: ./gradlew assembleDebug detektDebug
