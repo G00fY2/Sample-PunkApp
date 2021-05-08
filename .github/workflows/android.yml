@@ -17,5 +17,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: Accept licenses for all available packages
+        run: yes | sdkmanager --licenses >/dev/null
       - name: Build app and run detekt with ktlint
         run: ./gradlew assembleDebug detektDebug
