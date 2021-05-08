@@ -7,6 +7,7 @@ import com.g00fy2.punkapp.model.datastore.BeerDatastoreImpl
 import com.g00fy2.punkapp.model.transformer.BeerTransformer
 import com.g00fy2.punkapp.model.transformer.BeerTransformerImpl
 import dagger.Binds
+import dagger.Lazy
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -34,21 +35,19 @@ abstract class BackendModule {
 object BackendStaticModule {
 
   @Provides
-  fun provideOkHttpClient(): OkHttpClient {
-    return OkHttpClient.Builder()
-      .addNetworkInterceptor(
-        HttpLoggingInterceptor { message -> Timber.tag("OkHttp").d(message) }
-          .setLevel(if (BuildConfig.DEBUG) Level.BODY else Level.NONE)
-      )
-      .build()
-  }
+  fun provideOkHttpLoggingInterceptor(): HttpLoggingInterceptor =
+    HttpLoggingInterceptor { Timber.tag("OkHttp").d(it) }.setLevel(if (BuildConfig.DEBUG) Level.BODY else Level.NONE)
 
   @Provides
-  fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
+  fun provideOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient =
+    OkHttpClient.Builder().addNetworkInterceptor(httpLoggingInterceptor).build()
+
+  @Provides
+  fun provideRetrofit(okHttpClient: Lazy<OkHttpClient>): Retrofit {
     return Retrofit.Builder()
       .baseUrl(BuildConfig.BASE_URL)
-      .client(okHttpClient)
       .addConverterFactory(MoshiConverterFactory.create())
+      .callFactory { okHttpClient.get().newCall(it) }
       .build()
   }
 
