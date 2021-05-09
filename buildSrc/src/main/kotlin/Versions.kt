@@ -27,7 +27,8 @@ object Versions {
 
   const val okHttp = "5.0.0-alpha.2"
   const val retrofit = "2.9.0"
-  const val moshi = "1.12.0"
+  const val serializationConverter = "0.8.0"
+  const val kotlinxSerialization = "1.2.0"
 
   const val daggerHilt = "2.35.1"
 

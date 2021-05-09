@@ -1,6 +1,7 @@
 plugins {
   id(Plugins.Android.application)
   id(Plugins.Kotlin.android)
+  id(Plugins.Kotlin.serialization)
   id(Plugins.Kotlin.kapt)
   id(Plugins.Misc.daggerHilt)
 }
@@ -37,6 +38,7 @@ android {
 dependencies {
   // Kotlin
   implementation(Deps.Kotlin.coroutines)
+  implementation(Deps.Kotlin.serialization)
 
   // AndroidX
   implementation(Deps.AndroidX.appcompat)
@@ -60,10 +62,7 @@ dependencies {
   implementation(Deps.OkHttp.interceptor)
 
   implementation(Deps.Retrofit.retrofit)
-  implementation(Deps.Retrofit.moshiConverter)
-
-  implementation(Deps.Moshi.moshi)
-  kapt(Deps.Moshi.moshiCompiler)
+  implementation(Deps.Retrofit.serializationConverter)
 
   // Dagger
   implementation(Deps.Dagger.daggerHilt)

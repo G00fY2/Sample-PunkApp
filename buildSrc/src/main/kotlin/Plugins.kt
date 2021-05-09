@@ -7,6 +7,8 @@ object Plugins {
   object Kotlin {
     const val androidGradle = "android"
     const val android = "kotlin-android"
+    const val serializationGradle = "plugin.serialization"
+    const val serialization = "kotlinx-serialization"
     const val kapt = "kotlin-kapt"
   }
 

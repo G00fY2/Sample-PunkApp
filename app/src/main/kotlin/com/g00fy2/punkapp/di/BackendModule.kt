@@ -6,17 +6,19 @@ import com.g00fy2.punkapp.model.datastore.BeerDatastore
 import com.g00fy2.punkapp.model.datastore.BeerDatastoreImpl
 import com.g00fy2.punkapp.model.transformer.BeerTransformer
 import com.g00fy2.punkapp.model.transformer.BeerTransformerImpl
+import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Binds
 import dagger.Lazy
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import kotlinx.serialization.json.Json
+import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.logging.HttpLoggingInterceptor.Level
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
 import timber.log.Timber
 
 @Module(includes = [BackendStaticModule::class])
@@ -46,7 +48,7 @@ object BackendStaticModule {
   fun provideRetrofit(okHttpClient: Lazy<OkHttpClient>): Retrofit {
     return Retrofit.Builder()
       .baseUrl(BuildConfig.BASE_URL)
-      .addConverterFactory(MoshiConverterFactory.create())
+      .addConverterFactory(Json { ignoreUnknownKeys = true }.asConverterFactory("application/json".toMediaType()))
       .callFactory { okHttpClient.get().newCall(it) }
       .build()
   }

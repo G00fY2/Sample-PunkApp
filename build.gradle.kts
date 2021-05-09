@@ -6,6 +6,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
   id(Plugins.Android.application) version Versions.androidGradle apply false
   kotlin(Plugins.Kotlin.androidGradle) version Versions.kotlin apply false
+  kotlin(Plugins.Kotlin.serializationGradle) version Versions.kotlin apply false
   id(Plugins.Misc.daggerHilt) version Versions.daggerHilt apply false
   id(Plugins.Misc.detekt) version Versions.detekt apply false
   id(Plugins.Misc.gradleVersions) version Versions.gradleVersions
@@ -28,7 +29,8 @@ subprojects {
   tasks.withType<KotlinCompile>().configureEach {
     kotlinOptions {
       allWarningsAsErrors = true
-      freeCompilerArgs = freeCompilerArgs + listOf("-progressive")
+      freeCompilerArgs =
+        freeCompilerArgs + listOf("-progressive", "-Xopt-in=kotlinx.serialization.ExperimentalSerializationApi")
       jvmTarget = "11"
     }
   }

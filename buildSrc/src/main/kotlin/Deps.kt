@@ -12,16 +12,12 @@ object Deps {
 
   object Kotlin {
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+    const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinxSerialization}"
   }
 
   object UI {
     const val materialDesign = "com.google.android.material:material:${Versions.materialDesign}"
     const val coil = "io.coil-kt:coil:${Versions.coil}"
-  }
-
-  object Moshi {
-    const val moshi = "com.squareup.moshi:moshi:${Versions.moshi}"
-    const val moshiCompiler = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
   }
 
   object OkHttp {
@@ -32,7 +28,8 @@ object Deps {
 
   object Retrofit {
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
-    const val moshiConverter = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
+    const val serializationConverter =
+      "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:${Versions.serializationConverter}"
   }
 
   object Dagger {
