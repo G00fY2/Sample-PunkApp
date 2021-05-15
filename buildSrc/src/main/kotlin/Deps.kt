@@ -1,13 +1,18 @@
 object Deps {
 
   object AndroidX {
-    const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
-    const val core = "androidx.core:core-ktx:${Versions.core}"
-    const val activity = "androidx.activity:activity:${Versions.activity}"
-    const val fragment = "androidx.fragment:fragment:${Versions.fragment}"
-    const val lifecycle = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle}"
-    const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
-    const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+    const val activityCompose = "androidx.activity:activity-compose:${Versions.activityCompose}"
+    const val composeUI = "androidx.compose.ui:ui:${Versions.compose}"
+    const val composeMaterial = "androidx.compose.material:material:${Versions.compose}"
+    const val composeUITooling = "androidx.compose.ui:ui-tooling:${Versions.compose}"
+    const val composeLiveData = "androidx.compose.runtime:runtime-livedata:${Versions.compose}"
+    const val composeNavigation = "androidx.navigation:navigation-compose:${Versions.composeNavigation}"
+    const val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
+    const val hiltNavigationCompose = "androidx.hilt:hilt-navigation-compose:${Versions.androidHiltNavigationCompose}"
+  }
+
+  object Accompanist {
+    const val insets = "com.google.accompanist:accompanist-insets:${Versions.accompanist}"
   }
 
   object Kotlin {
@@ -33,8 +38,8 @@ object Deps {
   }
 
   object Dagger {
-    const val daggerHilt = "com.google.dagger:hilt-android:${Versions.daggerHilt}"
-    const val daggerHiltCompiler = "com.google.dagger:hilt-compiler:${Versions.daggerHilt}"
+    const val hilt = "com.google.dagger:hilt-android:${Versions.daggerHilt}"
+    const val hiltCompiler = "com.google.dagger:hilt-compiler:${Versions.daggerHilt}"
   }
 
   object Misc {

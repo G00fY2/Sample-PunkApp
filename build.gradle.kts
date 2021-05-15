@@ -28,9 +28,12 @@ subprojects {
   }
   tasks.withType<KotlinCompile>().configureEach {
     kotlinOptions {
+      useIR = true
       allWarningsAsErrors = true
-      freeCompilerArgs =
-        freeCompilerArgs + listOf("-progressive", "-Xopt-in=kotlinx.serialization.ExperimentalSerializationApi")
+      freeCompilerArgs = freeCompilerArgs + listOf(
+        "-progressive",
+        "-Xopt-in=kotlinx.serialization.ExperimentalSerializationApi",
+      )
       jvmTarget = "11"
     }
   }

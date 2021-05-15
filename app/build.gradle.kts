@@ -26,11 +26,14 @@ android {
     }
   }
   buildFeatures {
-    viewBinding = true
+    compose = true
     aidl = false
     renderScript = false
     resValues = false
     shaders = false
+  }
+  composeOptions {
+    kotlinCompilerExtensionVersion = Versions.compose
   }
   sourceSets.getByName("main").java.srcDirs("src/main/kotlin")
 }
@@ -41,13 +44,16 @@ dependencies {
   implementation(Deps.Kotlin.serialization)
 
   // AndroidX
-  implementation(Deps.AndroidX.appcompat)
-  implementation(Deps.AndroidX.core)
-  implementation(Deps.AndroidX.activity)
-  implementation(Deps.AndroidX.fragment)
-  implementation(Deps.AndroidX.lifecycle)
-  implementation(Deps.AndroidX.recyclerView)
-  implementation(Deps.AndroidX.constraintLayout)
+  implementation(Deps.AndroidX.activityCompose)
+  implementation(Deps.AndroidX.composeUI)
+  implementation(Deps.AndroidX.composeMaterial)
+  implementation(Deps.AndroidX.composeUITooling)
+  implementation(Deps.AndroidX.composeLiveData)
+  implementation(Deps.AndroidX.composeNavigation)
+  implementation(Deps.AndroidX.liveData)
+
+  // Accompanist
+  implementation(Deps.Accompanist.insets)
 
   // UI
   implementation(Deps.UI.materialDesign)
@@ -64,9 +70,10 @@ dependencies {
   implementation(Deps.Retrofit.retrofit)
   implementation(Deps.Retrofit.serializationConverter)
 
-  // Dagger
-  implementation(Deps.Dagger.daggerHilt)
-  kapt(Deps.Dagger.daggerHiltCompiler)
+  // Hilt
+  implementation(Deps.Dagger.hilt)
+  implementation(Deps.AndroidX.hiltNavigationCompose)
+  kapt(Deps.Dagger.hiltCompiler)
 }
 
 kapt {
