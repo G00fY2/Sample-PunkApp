@@ -31,7 +31,6 @@ class BeerDatastoreImpl @Inject constructor() : BeerDatastore {
     }.flowOn(Dispatchers.IO)
   }
 
-
   override suspend fun getBeerByID(id: Int): Flow<Beer> {
     return flow {
       val beer = beerDatasource.getBeerByID(id).let { beerTransformer.toModel(it) }

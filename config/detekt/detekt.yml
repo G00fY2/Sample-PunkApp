@@ -8,5 +8,7 @@ formatting:
     indentSize: 2
 
 style:
+  MagicNumber:
+    active: false
   NewLineAtEndOfFile:
     active: false
