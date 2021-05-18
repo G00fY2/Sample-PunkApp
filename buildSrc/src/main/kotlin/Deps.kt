@@ -5,9 +5,7 @@ object Deps {
     const val composeUI = "androidx.compose.ui:ui:${Versions.compose}"
     const val composeMaterial = "androidx.compose.material:material:${Versions.compose}"
     const val composeUITooling = "androidx.compose.ui:ui-tooling:${Versions.compose}"
-    const val composeLiveData = "androidx.compose.runtime:runtime-livedata:${Versions.compose}"
     const val composeNavigation = "androidx.navigation:navigation-compose:${Versions.composeNavigation}"
-    const val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
     const val hiltNavigationCompose = "androidx.hilt:hilt-navigation-compose:${Versions.androidHiltNavigationCompose}"
   }
 

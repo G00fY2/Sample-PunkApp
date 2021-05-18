@@ -1,7 +1,7 @@
 package com.g00fy2.punkapp.ui.main
 
 import androidx.compose.runtime.Composable
-import androidx.hilt.navigation.compose.hiltNavGraphViewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -15,7 +15,7 @@ fun PunkMain() {
   ProvideWindowInsets {
     NavHost(navController, "home") {
       composable("home") { backStackEntry ->
-        val viewModel = hiltNavGraphViewModel<MainViewModel>(backStackEntry)
+        val viewModel = hiltViewModel<MainViewModel>(backStackEntry)
         Beers(viewModel)
       }
     }

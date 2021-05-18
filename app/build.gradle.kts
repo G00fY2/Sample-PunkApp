@@ -7,12 +7,12 @@ plugins {
 }
 
 android {
-  compileSdkVersion(Versions.androidCompileSdk)
+  compileSdk = Versions.androidCompileSdk
   buildToolsVersion = Versions.androidBuildTools
   defaultConfig {
     applicationId = "com.g00fy2.punkapp"
-    minSdkVersion(Versions.androidMinSdk)
-    targetSdkVersion(Versions.androidTargetSdk)
+    minSdk = Versions.androidMinSdk
+    targetSdk = Versions.androidTargetSdk
     versionCode = 1
     versionName = "1.0"
 
@@ -20,7 +20,7 @@ android {
   }
   buildTypes {
     getByName("release") {
-      //isShrinkResources = true
+      isShrinkResources = true
       isMinifyEnabled = true
       proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
     }
@@ -48,9 +48,7 @@ dependencies {
   implementation(Deps.AndroidX.composeUI)
   implementation(Deps.AndroidX.composeMaterial)
   implementation(Deps.AndroidX.composeUITooling)
-  implementation(Deps.AndroidX.composeLiveData)
   implementation(Deps.AndroidX.composeNavigation)
-  implementation(Deps.AndroidX.liveData)
 
   // Accompanist
   implementation(Deps.Accompanist.insets)
