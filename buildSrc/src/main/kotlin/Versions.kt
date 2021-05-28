@@ -5,7 +5,7 @@ object Versions {
   const val androidTargetSdk = 30
 
   const val androidBuildTools = "31.0.0-rc4"
-  const val androidGradle = "7.0.0-beta02"
+  const val androidGradle = "7.0.0-beta03"
   const val kotlin = "1.4.32"
 
   const val gradleVersions = "0.38.0"
@@ -28,7 +28,7 @@ object Versions {
   const val serializationConverter = "0.8.0"
   const val kotlinxSerialization = "1.2.1"
 
-  const val daggerHilt = "2.35.1"
+  const val daggerHilt = "2.36"
   const val androidHiltNavigationCompose = "1.0.0-alpha02"
 
   const val detekt = "1.17.1"
