@@ -1,10 +1,10 @@
 object Deps {
 
   object AndroidX {
-    const val activityCompose = "androidx.activity:activity-compose:${Versions.activityCompose}"
     const val composeUI = "androidx.compose.ui:ui:${Versions.compose}"
     const val composeMaterial = "androidx.compose.material:material:${Versions.compose}"
     const val composeUITooling = "androidx.compose.ui:ui-tooling:${Versions.compose}"
+    const val activityCompose = "androidx.activity:activity-compose:${Versions.activityCompose}"
     const val composeNavigation = "androidx.navigation:navigation-compose:${Versions.composeNavigation}"
     const val hiltNavigationCompose = "androidx.hilt:hilt-navigation-compose:${Versions.androidHiltNavigationCompose}"
   }

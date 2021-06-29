@@ -28,7 +28,6 @@ subprojects {
   }
   tasks.withType<KotlinCompile>().configureEach {
     kotlinOptions {
-      useIR = true
       allWarningsAsErrors = true
       freeCompilerArgs = freeCompilerArgs + listOf(
         "-progressive",

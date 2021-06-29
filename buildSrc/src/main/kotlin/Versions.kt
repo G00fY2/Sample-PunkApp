@@ -4,22 +4,22 @@ object Versions {
   const val androidCompileSdk = 30
   const val androidTargetSdk = 30
 
-  const val androidBuildTools = "31.0.0-rc4"
-  const val androidGradle = "7.0.0-beta03"
-  const val kotlin = "1.4.32"
+  const val androidBuildTools = "31.0.0-rc5"
+  const val androidGradle = "7.1.0-alpha02"
+  const val kotlin = "1.5.10"
 
-  const val gradleVersions = "0.38.0"
+  const val gradleVersions = "0.39.0"
 
   const val coroutines = "1.5.0"
 
-  const val activityCompose = "1.3.0-alpha07"
-  const val compose = "1.0.0-beta07"
-  const val composeNavigation = "1.0.0-alpha10"
+  const val compose = "1.0.0-beta09"
+  const val activityCompose = "1.3.0-beta02"
+  const val composeNavigation = "2.4.0-alpha03"
 
-  const val materialDesign = "1.4.0-beta01"
-  const val accompanist = "0.10.0"
+  const val materialDesign = "1.4.0-rc01"
+  const val accompanist = "0.12.0"
 
-  const val coil = "1.2.1"
+  const val coil = "1.2.2"
 
   const val timber = "4.7.1"
 
@@ -28,8 +28,8 @@ object Versions {
   const val serializationConverter = "0.8.0"
   const val kotlinxSerialization = "1.2.1"
 
-  const val daggerHilt = "2.36"
-  const val androidHiltNavigationCompose = "1.0.0-alpha02"
+  const val daggerHilt = "2.37"
+  const val androidHiltNavigationCompose = "1.0.0-alpha03"
 
   const val detekt = "1.17.1"
 }
