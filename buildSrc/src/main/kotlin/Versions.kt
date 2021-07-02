@@ -12,12 +12,12 @@ object Versions {
 
   const val coroutines = "1.5.0"
 
-  const val compose = "1.0.0-beta09"
-  const val activityCompose = "1.3.0-beta02"
-  const val composeNavigation = "2.4.0-alpha03"
+  const val compose = "1.0.0-rc01"
+  const val activityCompose = "1.3.0-rc01"
+  const val composeNavigation = "2.4.0-alpha04"
 
   const val materialDesign = "1.4.0-rc01"
-  const val accompanist = "0.12.0"
+  const val accompanist = "0.13.0"
 
   const val coil = "1.2.2"
 
