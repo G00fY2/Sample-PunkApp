@@ -1,25 +1,27 @@
 package com.g00fy2.punkapp.di
 
 import com.g00fy2.punkapp.BuildConfig
-import com.g00fy2.punkapp.model.datasource.api.BeerDatasource
+import com.g00fy2.punkapp.model.datasource.web.BeerDatasource
+import com.g00fy2.punkapp.model.datasource.web.BeerDatasourceImpl
 import com.g00fy2.punkapp.model.datastore.BeerDatastore
 import com.g00fy2.punkapp.model.datastore.BeerDatastoreImpl
 import com.g00fy2.punkapp.model.transformer.BeerTransformer
 import com.g00fy2.punkapp.model.transformer.BeerTransformerImpl
-import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Binds
-import dagger.Lazy
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import io.ktor.client.HttpClient
+import io.ktor.client.engine.okhttp.OkHttp
+import io.ktor.client.features.json.JsonFeature
+import io.ktor.client.features.json.serializer.KotlinxSerializer
+import io.ktor.client.features.logging.LogLevel
+import io.ktor.client.features.logging.Logger
+import io.ktor.client.features.logging.Logging
 import kotlinx.serialization.json.Json
-import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import okhttp3.logging.HttpLoggingInterceptor.Level
-import retrofit2.Retrofit
 import timber.log.Timber
+import javax.inject.Named
 
 @Module(includes = [BackendStaticModule::class])
 @InstallIn(SingletonComponent::class)
@@ -30,6 +32,9 @@ abstract class BackendModule {
 
   @Binds
   abstract fun provideBeerTransformer(beerTransformerImpl: BeerTransformerImpl): BeerTransformer
+
+  @Binds
+  abstract fun provideBeerDatasource(beerDatasourceImpl: BeerDatasourceImpl): BeerDatasource
 }
 
 @Module
@@ -37,22 +42,29 @@ abstract class BackendModule {
 object BackendStaticModule {
 
   @Provides
-  fun provideOkHttpLoggingInterceptor(): HttpLoggingInterceptor =
-    HttpLoggingInterceptor { Timber.tag("OkHttp").d(it) }.setLevel(if (BuildConfig.DEBUG) Level.BODY else Level.NONE)
+  @Named("BASE_URL")
+  fun provideBaseUrl(): String = BuildConfig.BASE_URL
 
   @Provides
-  fun provideOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient =
-    OkHttpClient.Builder().addNetworkInterceptor(httpLoggingInterceptor).build()
+  fun provideKtorHttpClient(): HttpClient {
+    return HttpClient(OkHttp) {
 
-  @Provides
-  fun provideRetrofit(okHttpClient: Lazy<OkHttpClient>): Retrofit {
-    return Retrofit.Builder()
-      .baseUrl(BuildConfig.BASE_URL)
-      .addConverterFactory(Json { ignoreUnknownKeys = true }.asConverterFactory("application/json".toMediaType()))
-      .callFactory { okHttpClient.get().newCall(it) }
-      .build()
+      install(JsonFeature) {
+        serializer = KotlinxSerializer(Json {
+          ignoreUnknownKeys = true
+          isLenient = true
+        })
+      }
+
+      install(Logging) {
+        logger = object : Logger {
+          override fun log(message: String) {
+            Timber.tag("Ktor")
+            Timber.d(message)
+          }
+        }
+        level = LogLevel.ALL
+      }
+    }
   }
-
-  @Provides
-  fun provideBeerDatasource(retrofit: Retrofit): BeerDatasource = retrofit.create(BeerDatasource::class.java)
 }

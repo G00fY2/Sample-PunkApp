@@ -16,7 +16,7 @@ android {
     versionCode = 1
     versionName = "1.0"
 
-    buildConfigField("String", "BASE_URL", "\"https://api.punkapi.com/v2/\"")
+    buildConfigField("String", "BASE_URL", "\"https://api.punkapi.com/v2\"")
   }
   buildTypes {
     getByName("release") {
@@ -50,10 +50,8 @@ dependencies {
   implementation(Deps.AndroidX.composeUITooling)
   implementation(Deps.AndroidX.composeNavigation)
 
-  // Accompanist
-  implementation(Deps.Accompanist.insets)
-
   // UI
+  implementation(Deps.UI.accompanistInsets)
   implementation(Deps.UI.materialDesign)
   implementation(Deps.UI.coil)
 
@@ -61,12 +59,9 @@ dependencies {
   implementation(Deps.Misc.timber)
 
   // Web
-  implementation(platform(Deps.OkHttp.bom))
-  implementation(Deps.OkHttp.okHttp)
-  implementation(Deps.OkHttp.interceptor)
-
-  implementation(Deps.Retrofit.retrofit)
-  implementation(Deps.Retrofit.serializationConverter)
+  implementation(Deps.Kotlin.ktorClientOkHttp)
+  implementation(Deps.Kotlin.ktorClientSerialization)
+  implementation(Deps.Kotlin.ktorClientLogging)
 
   // Hilt
   implementation(Deps.Dagger.hilt)

@@ -1,6 +1,6 @@
 package com.g00fy2.punkapp.model.datastore
 
-import com.g00fy2.punkapp.model.datasource.api.BeerDatasource
+import com.g00fy2.punkapp.model.datasource.web.BeerDatasource
 import com.g00fy2.punkapp.model.entities.domain.Beer
 import com.g00fy2.punkapp.model.transformer.BeerTransformer
 import kotlinx.coroutines.Dispatchers

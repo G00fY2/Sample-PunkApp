@@ -11,6 +11,8 @@ object Versions {
   const val gradleVersions = "0.39.0"
 
   const val coroutines = "1.5.1"
+  const val kotlinxSerialization = "1.2.2"
+  const val ktor = "1.6.1"
 
   const val compose = "1.0.0-rc02"
   const val activityCompose = "1.3.0-rc02"
@@ -22,11 +24,6 @@ object Versions {
   const val coil = "1.3.0"
 
   const val timber = "4.7.1"
-
-  const val okHttp = "5.0.0-alpha.2"
-  const val retrofit = "2.9.0"
-  const val serializationConverter = "0.8.0"
-  const val kotlinxSerialization = "1.2.2"
 
   const val daggerHilt = "2.37"
   const val androidHiltNavigationCompose = "1.0.0-alpha03"

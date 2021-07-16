@@ -9,30 +9,18 @@ object Deps {
     const val hiltNavigationCompose = "androidx.hilt:hilt-navigation-compose:${Versions.androidHiltNavigationCompose}"
   }
 
-  object Accompanist {
-    const val insets = "com.google.accompanist:accompanist-insets:${Versions.accompanist}"
-  }
-
   object Kotlin {
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
     const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinxSerialization}"
+    const val ktorClientOkHttp = "io.ktor:ktor-client-okhttp:${Versions.ktor}"
+    const val ktorClientSerialization = "io.ktor:ktor-client-serialization:${Versions.ktor}"
+    const val ktorClientLogging = "io.ktor:ktor-client-logging-jvm:${Versions.ktor}"
   }
 
   object UI {
+    const val accompanistInsets = "com.google.accompanist:accompanist-insets:${Versions.accompanist}"
     const val materialDesign = "com.google.android.material:material:${Versions.materialDesign}"
     const val coil = "io.coil-kt:coil:${Versions.coil}"
-  }
-
-  object OkHttp {
-    const val bom = "com.squareup.okhttp3:okhttp-bom:${Versions.okHttp}"
-    const val okHttp = "com.squareup.okhttp3:okhttp"
-    const val interceptor = "com.squareup.okhttp3:logging-interceptor"
-  }
-
-  object Retrofit {
-    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
-    const val serializationConverter =
-      "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:${Versions.serializationConverter}"
   }
 
   object Dagger {
