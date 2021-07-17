@@ -28,5 +28,5 @@ object Versions {
   const val daggerHilt = "2.37"
   const val androidHiltNavigationCompose = "1.0.0-alpha03"
 
-  const val detekt = "1.18.0-RC1"
+  const val detekt = "1.18.0-RC2"
 }

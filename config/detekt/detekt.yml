@@ -7,10 +7,6 @@ formatting:
   ParameterListWrapping:
     indentSize: 2
 
-naming:
-  FunctionNaming:
-    ignoreAnnotated: ['Composable']
-
 style:
   MagicNumber:
     active: false
