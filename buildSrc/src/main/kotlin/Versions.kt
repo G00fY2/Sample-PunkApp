@@ -14,14 +14,14 @@ object Versions {
   const val kotlinxSerialization = "1.2.2"
   const val ktor = "1.6.1"
 
-  const val compose = "1.0.0-rc02"
-  const val activityCompose = "1.3.0-rc02"
+  const val compose = "1.0.0"
+  const val activityCompose = "1.3.0"
   const val composeNavigation = "2.4.0-alpha05"
 
   const val materialDesign = "1.5.0-alpha01"
-  const val accompanist = "0.14.0"
+  const val accompanist = "0.15.0"
 
-  const val coil = "1.3.0"
+  const val coil = "1.3.1"
 
   const val timber = "4.7.1"
 
