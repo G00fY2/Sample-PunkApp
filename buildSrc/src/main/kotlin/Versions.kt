@@ -1,18 +1,18 @@
 object Versions {
 
-  const val androidMinSdk = 24
+  const val androidMinSdk = 21
   const val androidCompileSdk = 31
   const val androidTargetSdk = 31
 
   const val androidBuildTools = "31.0.0"
-  const val androidGradle = "7.1.0-alpha05"
+  const val androidGradle = "7.1.0-alpha06"
   const val kotlin = "1.5.10"
 
   const val gradleVersions = "0.39.0"
 
   const val coroutines = "1.5.1"
   const val kotlinxSerialization = "1.2.2"
-  const val ktor = "1.6.1"
+  const val ktor = "1.6.2"
 
   const val compose = "1.0.0"
   const val activityCompose = "1.3.0"
