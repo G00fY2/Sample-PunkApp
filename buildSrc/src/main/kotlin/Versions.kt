@@ -23,7 +23,7 @@ object Versions {
 
   const val coil = "1.3.2"
 
-  const val timber = "5.0.0"
+  const val timber = "5.0.1"
 
   const val daggerHilt = "2.38.1"
   const val androidHiltNavigationCompose = "1.0.0-alpha03"
