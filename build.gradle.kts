@@ -32,6 +32,7 @@ subprojects {
       freeCompilerArgs = freeCompilerArgs + listOf(
         "-progressive",
         "-Xopt-in=kotlinx.serialization.ExperimentalSerializationApi",
+        "-Xopt-in=coil.annotation.ExperimentalCoilApi"
       )
       jvmTarget = "11"
     }
