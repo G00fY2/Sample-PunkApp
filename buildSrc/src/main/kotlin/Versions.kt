@@ -5,14 +5,14 @@ object Versions {
   const val androidTargetSdk = 31
 
   const val androidBuildTools = "31.0.0"
-  const val androidGradle = "7.1.0-alpha09"
+  const val androidGradle = "7.1.0-alpha10"
   const val kotlin = "1.5.21"
 
   const val gradleVersions = "0.39.0"
 
   const val coroutines = "1.5.1"
   const val kotlinxSerialization = "1.2.2"
-  const val ktor = "1.6.2"
+  const val ktor = "1.6.3"
 
   const val compose = "1.1.0-alpha02"
   const val activityCompose = "1.3.1"
