@@ -21,7 +21,7 @@ object Versions {
   const val materialDesign = "1.5.0-alpha04"
   const val accompanist = "0.19.0"
 
-  const val coil = "1.3.2"
+  const val coil = "2.0.0-alpha01"
 
   const val timber = "5.0.1"
 
