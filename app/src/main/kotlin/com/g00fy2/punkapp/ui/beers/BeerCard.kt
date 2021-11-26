@@ -16,7 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import coil.compose.rememberImagePainter
+import coil.compose.rememberAsyncImagePainter
 import com.g00fy2.punkapp.model.entities.domain.Beer
 import com.g00fy2.punkapp.ui.theme.PunkAppTheme
 import com.g00fy2.punkapp.ui.theme.Purple200
@@ -25,7 +25,7 @@ import com.g00fy2.punkapp.ui.theme.Purple200
 fun BeerCard(beer: Beer) {
   Row(modifier = Modifier.padding(all = 8.dp)) {
     Image(
-      painter = rememberImagePainter(beer.imageUrl),
+      painter = rememberAsyncImagePainter(beer.imageUrl),
       contentDescription = null,
       modifier = Modifier
         .size(128.dp)
