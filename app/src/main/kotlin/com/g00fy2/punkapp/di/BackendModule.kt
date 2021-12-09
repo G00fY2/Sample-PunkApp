@@ -28,13 +28,13 @@ import javax.inject.Named
 abstract class BackendModule {
 
   @Binds
-  abstract fun provideBeerDatastore(beerDatastoreImpl: BeerDatastoreImpl): BeerDatastore
+  internal abstract fun provideBeerDatastore(beerDatastoreImpl: BeerDatastoreImpl): BeerDatastore
 
   @Binds
-  abstract fun provideBeerTransformer(beerTransformerImpl: BeerTransformerImpl): BeerTransformer
+  internal abstract fun provideBeerTransformer(beerTransformerImpl: BeerTransformerImpl): BeerTransformer
 
   @Binds
-  abstract fun provideBeerDatasource(beerDatasourceImpl: BeerDatasourceImpl): BeerDatasource
+  internal abstract fun provideBeerDatasource(beerDatasourceImpl: BeerDatasourceImpl): BeerDatasource
 }
 
 @Module
