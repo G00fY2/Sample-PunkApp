@@ -33,7 +33,7 @@ android {
     shaders = false
   }
   composeOptions {
-    kotlinCompilerExtensionVersion = Versions.compose
+    kotlinCompilerExtensionVersion = Versions.composeCompiler
   }
   sourceSets.getByName("main").java.srcDirs("src/main/kotlin")
 }
@@ -46,6 +46,7 @@ dependencies {
   // AndroidX
   implementation(Deps.AndroidX.activityCompose)
   implementation(Deps.AndroidX.composeUI)
+  implementation(Deps.AndroidX.composeCompiler)
   implementation(Deps.AndroidX.composeMaterial)
   implementation(Deps.AndroidX.composeUITooling)
   implementation(Deps.AndroidX.composeNavigation)

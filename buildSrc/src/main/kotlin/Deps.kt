@@ -1,6 +1,7 @@
 object Deps {
 
   object AndroidX {
+    const val composeCompiler = "androidx.compose.compiler:compiler:${Versions.composeCompiler}"
     const val composeUI = "androidx.compose.ui:ui:${Versions.compose}"
     const val composeMaterial = "androidx.compose.material:material:${Versions.compose}"
     const val composeUITooling = "androidx.compose.ui:ui-tooling:${Versions.compose}"
