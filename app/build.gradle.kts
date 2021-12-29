@@ -16,7 +16,7 @@ android {
     versionCode = 1
     versionName = "1.0"
 
-    buildConfigField("String", "BASE_URL", "\"https://api.punkapi.com/v2\"")
+    buildConfigField("String", "BASE_URL", "\"https://api.punkapi.com/v2/\"")
   }
   buildTypes {
     getByName("release") {
@@ -61,6 +61,7 @@ dependencies {
 
   // Web
   implementation(Deps.Kotlin.ktorClientOkHttp)
+  implementation(Deps.Kotlin.ktorClientContentNegotiation)
   implementation(Deps.Kotlin.ktorClientSerialization)
   implementation(Deps.Kotlin.ktorClientLogging)
 

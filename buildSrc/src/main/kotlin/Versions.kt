@@ -12,7 +12,7 @@ object Versions {
 
   const val coroutines = "1.6.0"
   const val kotlinxSerialization = "1.3.2"
-  const val ktor = "1.6.7"
+  const val ktor = "2.0.0-beta-1"
 
   const val composeCompiler = "1.1.0-rc02"
   const val compose = "1.1.0-rc01"

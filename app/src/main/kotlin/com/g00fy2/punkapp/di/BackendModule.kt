@@ -14,14 +14,14 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
-import io.ktor.client.features.json.JsonFeature
-import io.ktor.client.features.json.serializer.KotlinxSerializer
-import io.ktor.client.features.logging.LogLevel
-import io.ktor.client.features.logging.Logger
-import io.ktor.client.features.logging.Logging
+import io.ktor.client.plugins.ContentNegotiation
+import io.ktor.client.plugins.defaultRequest
+import io.ktor.client.plugins.logging.LogLevel
+import io.ktor.client.plugins.logging.Logger
+import io.ktor.client.plugins.logging.Logging
+import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import timber.log.Timber
-import javax.inject.Named
 
 @Module(includes = [BackendStaticModule::class])
 @InstallIn(SingletonComponent::class)
@@ -42,15 +42,15 @@ abstract class BackendModule {
 object BackendStaticModule {
 
   @Provides
-  @Named("BASE_URL")
-  fun provideBaseUrl(): String = BuildConfig.BASE_URL
-
-  @Provides
   fun provideKtorHttpClient(): HttpClient {
     return HttpClient(OkHttp) {
 
-      install(JsonFeature) {
-        serializer = KotlinxSerializer(Json {
+      defaultRequest {
+        url(BuildConfig.BASE_URL)
+      }
+
+      install(ContentNegotiation) {
+        json(Json {
           ignoreUnknownKeys = true
           isLenient = true
         })

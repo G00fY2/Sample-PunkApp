@@ -14,7 +14,8 @@ object Deps {
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
     const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinxSerialization}"
     const val ktorClientOkHttp = "io.ktor:ktor-client-okhttp:${Versions.ktor}"
-    const val ktorClientSerialization = "io.ktor:ktor-client-serialization:${Versions.ktor}"
+    const val ktorClientContentNegotiation = "io.ktor:ktor-client-content-negotiation:${Versions.ktor}"
+    const val ktorClientSerialization = "io.ktor:ktor-serialization-kotlinx-json:${Versions.ktor}"
     const val ktorClientLogging = "io.ktor:ktor-client-logging-jvm:${Versions.ktor}"
   }
 
