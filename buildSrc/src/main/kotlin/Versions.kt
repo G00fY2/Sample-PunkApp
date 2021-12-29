@@ -10,8 +10,8 @@ object Versions {
 
   const val gradleVersions = "0.39.0"
 
-  const val coroutines = "1.6.0-RC3"
-  const val kotlinxSerialization = "1.3.1"
+  const val coroutines = "1.6.0"
+  const val kotlinxSerialization = "1.3.2"
   const val ktor = "1.6.7"
 
   const val composeCompiler = "1.1.0-rc02"
@@ -22,7 +22,7 @@ object Versions {
   const val materialDesign = "1.6.0-alpha01"
   const val accompanist = "0.22.0-rc"
 
-  const val coil = "2.0.0-alpha05"
+  const val coil = "2.0.0-alpha06"
 
   const val timber = "5.0.1"
 
