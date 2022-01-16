@@ -14,8 +14,8 @@ object Versions {
   const val kotlinxSerialization = "1.3.2"
   const val ktor = "2.0.0-beta-1"
 
-  const val composeCompiler = "1.1.0-rc02"
-  const val compose = "1.1.0-rc01"
+  const val composeCompiler = "1.2.0-alpha01"
+  const val compose = "1.2.0-alpha01"
   const val activityCompose = "1.4.0"
   const val composeNavigation = "2.4.0-rc01"
 
