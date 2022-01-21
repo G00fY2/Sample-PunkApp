@@ -19,8 +19,8 @@ object Versions {
   const val activityCompose = "1.4.0"
   const val composeNavigation = "2.4.0-rc01"
 
-  const val materialDesign = "1.6.0-alpha01"
-  const val accompanist = "0.22.0-rc"
+  const val materialDesign = "1.6.0-alpha02"
+  const val accompanist = "0.24.0-alpha"
 
   const val coil = "2.0.0-alpha06"
 
