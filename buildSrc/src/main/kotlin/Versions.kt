@@ -4,8 +4,8 @@ object Versions {
   const val androidCompileSdk = 31
   const val androidTargetSdk = 31
 
-  const val androidBuildTools = "32.0.0"
-  const val androidGradle = "7.2.0-beta01"
+  const val androidBuildTools = "32.1.0-rc1"
+  const val androidGradle = "7.3.0-alpha01"
   const val kotlin = "1.6.10"
 
   const val gradleVersions = "0.41.0"
@@ -22,7 +22,7 @@ object Versions {
   const val materialDesign = "1.6.0-alpha02"
   const val accompanist = "0.24.1-alpha"
 
-  const val coil = "2.0.0-alpha06"
+  const val coil = "2.0.0-alpha07"
 
   const val timber = "5.0.1"
 
