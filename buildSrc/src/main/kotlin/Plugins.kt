@@ -13,7 +13,7 @@ object Plugins {
   }
 
   object Misc {
-    const val daggerHilt = "dagger.hilt.android.plugin"
+    const val daggerHilt = "com.google.dagger.hilt.android"
     const val detekt = "io.gitlab.arturbosch.detekt"
     const val detektFormatting = "io.gitlab.arturbosch.detekt:detekt-formatting:${Versions.detekt}"
     const val gradleVersions = "com.github.ben-manes.versions"

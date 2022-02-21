@@ -22,11 +22,11 @@ object Versions {
   const val materialDesign = "1.6.0-alpha02"
   const val accompanist = "0.24.2-alpha"
 
-  const val coil = "2.0.0-alpha08"
+  const val coil = "2.0.0-alpha09"
 
   const val timber = "5.0.1"
 
-  const val daggerHilt = "2.40.5"
+  const val daggerHilt = "2.41"
   const val androidHiltNavigationCompose = "1.0.0"
 
   const val detekt = "1.19.0"
