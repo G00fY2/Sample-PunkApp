@@ -21,7 +21,7 @@ subprojects {
     ignoredBuildTypes = listOf("release")
   }
   dependencies {
-    "detektPlugins"(Plugins.Misc.detektFormatting)
+    add("detektPlugins", Plugins.Misc.detektFormatting)
   }
   tasks.withType<Detekt>().configureEach {
     jvmTarget = "11"
@@ -31,8 +31,8 @@ subprojects {
       allWarningsAsErrors = true
       freeCompilerArgs = freeCompilerArgs + listOf(
         "-progressive",
-        "-Xopt-in=kotlinx.serialization.ExperimentalSerializationApi",
-        "-Xopt-in=coil.annotation.ExperimentalCoilApi"
+        "-opt-in=kotlinx.serialization.ExperimentalSerializationApi",
+        "-opt-in=coil.annotation.ExperimentalCoilApi"
       )
       jvmTarget = "11"
     }

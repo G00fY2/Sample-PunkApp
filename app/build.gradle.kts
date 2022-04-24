@@ -7,6 +7,7 @@ plugins {
 }
 
 android {
+  namespace = "com.g00fy2.punkapp"
   compileSdk = Versions.androidCompileSdk
   buildToolsVersion = Versions.androidBuildTools
   defaultConfig {
@@ -35,7 +36,6 @@ android {
   composeOptions {
     kotlinCompilerExtensionVersion = Versions.composeCompiler
   }
-  sourceSets.getByName("main").java.srcDirs("src/main/kotlin")
 }
 
 dependencies {
@@ -50,7 +50,6 @@ dependencies {
   implementation(Deps.AndroidX.composeNavigation)
 
   // UI
-  implementation(Deps.UI.accompanistInsets)
   implementation(Deps.UI.materialDesign)
   implementation(Deps.UI.coil)
 

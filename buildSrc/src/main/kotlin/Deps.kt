@@ -18,7 +18,6 @@ object Deps {
   }
 
   object UI {
-    const val accompanistInsets = "com.google.accompanist:accompanist-insets:${Versions.accompanist}"
     const val materialDesign = "com.google.android.material:material:${Versions.materialDesign}"
     const val coil = "io.coil-kt:coil-compose:${Versions.coil}"
   }

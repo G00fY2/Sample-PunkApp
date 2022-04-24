@@ -7,14 +7,13 @@ import com.g00fy2.punkapp.model.entities.domain.Beer
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(private val beerDatastore: BeerDatastore) : ViewModel() {
 
-  private var _beerList: MutableStateFlow<List<Beer>> = MutableStateFlow(emptyList())
+  private val _beerList: MutableStateFlow<List<Beer>> = MutableStateFlow(emptyList())
   val beerList: StateFlow<List<Beer>> = _beerList
 
   init {

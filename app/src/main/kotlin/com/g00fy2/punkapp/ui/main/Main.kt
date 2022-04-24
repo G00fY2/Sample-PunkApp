@@ -6,18 +6,15 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.g00fy2.punkapp.ui.beers.Beers
-import com.google.accompanist.insets.ProvideWindowInsets
 
 @Composable
 fun PunkMain() {
   val navController = rememberNavController()
 
-  ProvideWindowInsets {
-    NavHost(navController, "home") {
-      composable("home") { backStackEntry ->
-        val viewModel = hiltViewModel<MainViewModel>(backStackEntry)
-        Beers(viewModel)
-      }
+  NavHost(navController, "home") {
+    composable("home") { backStackEntry ->
+      val viewModel = hiltViewModel<MainViewModel>(backStackEntry)
+      Beers(viewModel)
     }
   }
 }

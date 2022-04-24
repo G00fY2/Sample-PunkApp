@@ -14,7 +14,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
-import io.ktor.client.plugins.ContentNegotiation
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
 import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
@@ -50,10 +50,12 @@ object BackendStaticModule {
       }
 
       install(ContentNegotiation) {
-        json(Json {
-          ignoreUnknownKeys = true
-          isLenient = true
-        })
+        json(
+          Json {
+            ignoreUnknownKeys = true
+            isLenient = true
+          }
+        )
       }
 
       install(Logging) {
