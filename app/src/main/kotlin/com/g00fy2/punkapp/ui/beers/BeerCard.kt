@@ -1,6 +1,5 @@
 package com.g00fy2.punkapp.ui.beers
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -16,7 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import coil.compose.rememberAsyncImagePainter
+import coil.compose.AsyncImage
 import com.g00fy2.punkapp.model.entities.domain.Beer
 import com.g00fy2.punkapp.ui.theme.PunkAppTheme
 import com.g00fy2.punkapp.ui.theme.Purple200
@@ -24,8 +23,8 @@ import com.g00fy2.punkapp.ui.theme.Purple200
 @Composable
 fun BeerCard(beer: Beer) {
   Row(modifier = Modifier.padding(all = 8.dp)) {
-    Image(
-      painter = rememberAsyncImagePainter(beer.imageUrl),
+    AsyncImage(
+      model = beer.imageUrl,
       contentDescription = null,
       modifier = Modifier
         .size(128.dp)
