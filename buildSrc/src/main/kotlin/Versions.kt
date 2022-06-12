@@ -1,25 +1,25 @@
 object Versions {
 
   const val androidMinSdk = 21
-  const val androidCompileSdk = 32
-  const val androidTargetSdk = 32
+  const val androidCompileSdk = 33
+  const val androidTargetSdk = 33
 
-  const val androidBuildTools = "33.0.0-rc4"
-  const val androidGradle = "7.4.0-alpha02"
+  const val androidBuildTools = "33.0.0"
+  const val androidGradle = "7.4.0-alpha03"
   const val kotlin = "1.6.21"
 
   const val gradleVersions = "0.42.0"
 
-  const val coroutines = "1.6.1"
+  const val coroutines = "1.6.2"
   const val kotlinxSerialization = "1.3.3"
-  const val ktor = "2.0.1"
+  const val ktor = "2.0.2"
 
-  const val composeCompiler = "1.2.0-beta02"
-  const val compose = "1.2.0-beta02"
+  const val composeCompiler = "1.2.0-beta03"
+  const val compose = "1.2.0-beta03"
   const val activityCompose = "1.5.0-rc01"
   const val composeNavigation = "2.5.0-rc01"
 
-  const val materialDesign = "1.7.0-alpha01"
+  const val materialDesign = "1.7.0-alpha02"
 
   const val coil = "2.1.0"
 
@@ -28,5 +28,5 @@ object Versions {
   const val daggerHilt = "2.42"
   const val androidHiltNavigationCompose = "1.0.0"
 
-  const val detekt = "1.20.0"
+  const val detekt = "1.21.0-RC1"
 }
