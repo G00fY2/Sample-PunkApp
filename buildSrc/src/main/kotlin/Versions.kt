@@ -5,7 +5,7 @@ object Versions {
   const val androidTargetSdk = 33
 
   const val androidBuildTools = "33.0.0"
-  const val androidGradle = "7.4.0-alpha03"
+  const val androidGradle = "7.4.0-alpha05"
   const val kotlin = "1.6.21"
 
   const val gradleVersions = "0.42.0"
@@ -14,10 +14,10 @@ object Versions {
   const val kotlinxSerialization = "1.3.3"
   const val ktor = "2.0.2"
 
-  const val composeCompiler = "1.2.0-beta03"
-  const val compose = "1.2.0-beta03"
-  const val activityCompose = "1.5.0-rc01"
-  const val composeNavigation = "2.5.0-rc01"
+  const val composeCompiler = "1.2.0-rc01"
+  const val compose = "1.2.0-rc01"
+  const val activityCompose = "1.6.0-alpha05"
+  const val composeNavigation = "2.5.0-rc02"
 
   const val materialDesign = "1.7.0-alpha02"
 
