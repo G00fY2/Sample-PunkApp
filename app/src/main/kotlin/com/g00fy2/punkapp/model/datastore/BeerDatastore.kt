@@ -5,11 +5,11 @@ import kotlinx.coroutines.flow.Flow
 
 interface BeerDatastore {
 
-  suspend fun getAllBeers(): Flow<List<Beer>>
+  fun getAllBeers(): Flow<List<Beer>>
 
-  suspend fun getBeers(page: Int, perPage: Int): Flow<List<Beer>>
+  fun getBeers(page: Int, perPage: Int): Flow<List<Beer>>
 
-  suspend fun getBeerByID(id: Int): Flow<Beer>
+  fun getBeerByID(id: Int): Flow<Beer>
 
-  suspend fun getRandomBeer(): Flow<Beer>
+  fun getRandomBeer(): Flow<Beer>
 }

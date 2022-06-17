@@ -17,28 +17,28 @@ class BeerDatastoreImpl @Inject constructor() : BeerDatastore {
   @Inject
   lateinit var beerTransformer: BeerTransformer
 
-  override suspend fun getAllBeers(): Flow<List<Beer>> {
+  override fun getAllBeers(): Flow<List<Beer>> {
     return flow {
       val beerList = beerDatasource.getAllBeers().map { beerTransformer.toModel(it) }
       emit(beerList)
     }.flowOn(Dispatchers.IO)
   }
 
-  override suspend fun getBeers(page: Int, perPage: Int): Flow<List<Beer>> {
+  override fun getBeers(page: Int, perPage: Int): Flow<List<Beer>> {
     return flow {
       val beerList = beerDatasource.getBeers(page, perPage).map { beerTransformer.toModel(it) }
       emit(beerList)
     }.flowOn(Dispatchers.IO)
   }
 
-  override suspend fun getBeerByID(id: Int): Flow<Beer> {
+  override fun getBeerByID(id: Int): Flow<Beer> {
     return flow {
       val beer = beerDatasource.getBeerByID(id).let { beerTransformer.toModel(it) }
       emit(beer)
     }.flowOn(Dispatchers.IO)
   }
 
-  override suspend fun getRandomBeer(): Flow<Beer> {
+  override fun getRandomBeer(): Flow<Beer> {
     return flow {
       val beer = beerDatasource.getRandomBeer().let { beerTransformer.toModel(it) }
       emit(beer)
