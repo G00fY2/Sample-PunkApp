@@ -1,19 +1,20 @@
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-  id(Plugins.Android.application)
-  id(Plugins.Kotlin.android)
-  id(Plugins.Kotlin.serialization)
-  id(Plugins.Kotlin.kapt)
-  id(Plugins.Misc.daggerHilt)
+  id(libs.plugins.android.application.get().pluginId)
+  id(libs.plugins.kotlin.android.get().pluginId)
+  id(libs.plugins.kotlin.serialization.get().pluginId)
+  id(libs.plugins.kotlin.kapt.get().pluginId)
+  id(libs.plugins.dagger.hilt.get().pluginId)
 }
 
 android {
   namespace = "com.g00fy2.punkapp"
-  compileSdk = Versions.androidCompileSdk
-  buildToolsVersion = Versions.androidBuildTools
+  compileSdk = rootProject.libs.versions.androidconfig.compileSdk.get().toInt()
+  buildToolsVersion = rootProject.libs.versions.androidconfig.buildTools.get()
   defaultConfig {
     applicationId = "com.g00fy2.punkapp"
-    minSdk = Versions.androidMinSdk
-    targetSdk = Versions.androidTargetSdk
+    minSdk = rootProject.libs.versions.androidconfig.minSdk.get().toInt()
+    targetSdk = rootProject.libs.versions.androidconfig.targetSdk.get().toInt()
     versionCode = 1
     versionName = "1.0"
 
@@ -34,39 +35,39 @@ android {
     shaders = false
   }
   composeOptions {
-    kotlinCompilerExtensionVersion = Versions.composeCompiler
+    kotlinCompilerExtensionVersion = rootProject.libs.versions.composeCompiler.get()
   }
 }
 
 dependencies {
   // Kotlin
-  implementation(Deps.Kotlin.coroutines)
-  implementation(Deps.Kotlin.serialization)
+  implementation(libs.kotlin.coroutines)
+  implementation(libs.kotlin.serialization)
 
   // AndroidX
-  implementation(Deps.AndroidX.activityCompose)
-  implementation(Deps.AndroidX.composeMaterial)
-  debugImplementation(Deps.AndroidX.composeUITooling)
-  implementation(Deps.AndroidX.composeUIToolingPreview)
-  implementation(Deps.AndroidX.composeNavigation)
+  implementation(libs.androidx.activityCompose)
+  implementation(libs.androidx.composeMaterial)
+  debugImplementation(libs.androidx.composeUITooling)
+  implementation(libs.androidx.composeUIToolingPreview)
+  implementation(libs.androidx.composeNavigation)
 
   // UI
-  implementation(Deps.UI.materialDesign)
-  implementation(Deps.UI.coil)
+  implementation(libs.ui.materialDesign)
+  implementation(libs.ui.coil)
 
   // Misc
-  implementation(Deps.Misc.timber)
+  implementation(libs.misc.timber)
 
   // Web
-  implementation(Deps.Kotlin.ktorClientOkHttp)
-  implementation(Deps.Kotlin.ktorClientContentNegotiation)
-  implementation(Deps.Kotlin.ktorClientSerialization)
-  implementation(Deps.Kotlin.ktorClientLogging)
+  implementation(libs.kotlin.ktorClientOkHttp)
+  implementation(libs.kotlin.ktorClientContentNegotiation)
+  implementation(libs.kotlin.ktorClientSerialization)
+  implementation(libs.kotlin.ktorClientLogging)
 
   // Hilt
-  implementation(Deps.Dagger.hilt)
-  implementation(Deps.AndroidX.hiltNavigationCompose)
-  kapt(Deps.Dagger.hiltCompiler)
+  implementation(libs.dagger.hilt)
+  implementation(libs.androidx.hiltNavigationCompose)
+  kapt(libs.dagger.hiltCompiler)
 }
 
 kapt {
