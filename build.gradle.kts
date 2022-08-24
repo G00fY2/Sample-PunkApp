@@ -30,11 +30,7 @@ subprojects {
   tasks.withType<KotlinCompile>().configureEach {
     kotlinOptions {
       allWarningsAsErrors = true
-      freeCompilerArgs = freeCompilerArgs + listOf(
-        "-progressive",
-        "-opt-in=kotlinx.serialization.ExperimentalSerializationApi",
-        "-opt-in=coil.annotation.ExperimentalCoilApi"
-      )
+      freeCompilerArgs = freeCompilerArgs + "-progressive"
       jvmTarget = "11"
     }
   }
