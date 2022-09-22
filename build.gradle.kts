@@ -23,6 +23,7 @@ subprojects {
   }
   dependencies {
     add("detektPlugins", rootProject.libs.misc.detektFormatting)
+    add("detektPlugins", rootProject.libs.misc.twitterComposeRules)
   }
   tasks.withType<Detekt>().configureEach {
     jvmTarget = "11"

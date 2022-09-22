@@ -27,7 +27,8 @@ timber = "5.0.1"
 daggerHilt = "2.44"
 androidHiltNavigationCompose = "1.0.0"
 
-detekt = "1.21.0"
+detekt = "1.22.0-RC1"
+twitterComposeRules = "0.0.13"
 
 [libraries]
 androidx-composeMaterial = { module = "androidx.compose.material:material", version.ref = "compose" }
@@ -52,6 +53,7 @@ dagger-hiltCompiler = { module = "com.google.dagger:hilt-compiler", version.ref 
 
 misc-timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 misc-detektFormatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
+misc-twitterComposeRules = { module = "com.twitter.compose.rules:detekt", version.ref = "twitterComposeRules" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradle" }
