@@ -44,7 +44,6 @@ object BackendStaticModule {
   @Provides
   fun provideKtorHttpClient(): HttpClient {
     return HttpClient(OkHttp) {
-
       defaultRequest {
         url(BuildConfig.BASE_URL)
       }

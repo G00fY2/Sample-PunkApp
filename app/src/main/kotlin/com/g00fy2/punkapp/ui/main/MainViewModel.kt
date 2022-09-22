@@ -18,7 +18,9 @@ class MainViewModel @Inject constructor(private val beerDatastore: BeerDatastore
 
   init {
     viewModelScope.launch {
-      beerDatastore.getAllBeers().collect { _beerList.value = it }
+      beerDatastore.getAllBeers().collect {
+        _beerList.value = it
+      }
     }
   }
 }
