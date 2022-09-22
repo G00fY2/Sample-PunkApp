@@ -51,10 +51,27 @@ fun BeerCard(beer: Beer, modifier: Modifier = Modifier) {
   }
 }
 
-@Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
+@Preview(showBackground = true)
 @Composable
-fun PreviewMessageCard() {
+fun MessageCardPreview() {
   PunkAppTheme {
+    BeerCard(
+      Beer(
+        id = 0,
+        name = "Tasty Beer",
+        tagline = "",
+        firstBrewed = "",
+        description = "Description",
+        imageUrl = ""
+      )
+    )
+  }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun MessageCardDarkPreview() {
+  PunkAppTheme(darkTheme = true) {
     BeerCard(
       Beer(
         id = 0,

@@ -47,8 +47,9 @@ dependencies {
   // AndroidX
   implementation(libs.androidx.activityCompose)
   implementation(libs.androidx.composeMaterial)
-  debugImplementation(libs.androidx.composeUITooling)
-  implementation(libs.androidx.composeUIToolingPreview)
+  debugImplementation(libs.androidx.composeUiTooling)
+  implementation(libs.androidx.composeUiToolingPreview)
+  debugImplementation(libs.androidx.composeFoundation)
   implementation(libs.androidx.composeNavigation)
 
   // UI
@@ -58,7 +59,7 @@ dependencies {
   // Misc
   implementation(libs.misc.timber)
 
-  // Web
+  // Ktor
   implementation(libs.kotlin.ktorClientOkHttp)
   implementation(libs.kotlin.ktorClientContentNegotiation)
   implementation(libs.kotlin.ktorClientSerialization)

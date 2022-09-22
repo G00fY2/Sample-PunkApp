@@ -14,7 +14,9 @@ kotlinxSerialization = "1.4.0"
 ktor = "2.1.1"
 
 composeCompiler = "1.4.0-dev-k1.7.20-RC-a143c065804"
-compose = "1.3.0-beta02" # update once https://issuetracker.google.com/issues/248100419 is fixed
+composeUi = "1.3.0-beta02" # update once https://issuetracker.google.com/issues/248100419 is fixed
+composeMaterial = "1.3.0-beta03"
+composeFoundation = "1.3.0-beta03"
 activityCompose = "1.6.0"
 composeNavigation = "2.6.0-alpha01"
 
@@ -31,9 +33,10 @@ detekt = "1.22.0-RC1"
 twitterComposeRules = "0.0.13"
 
 [libraries]
-androidx-composeMaterial = { module = "androidx.compose.material:material", version.ref = "compose" }
-androidx-composeUITooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
-androidx-composeUIToolingPreview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
+androidx-composeMaterial = { module = "androidx.compose.material:material", version.ref = "composeMaterial" }
+androidx-composeUiTooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "composeUi" }
+androidx-composeUiToolingPreview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "composeUi" }
+androidx-composeFoundation = { module = "androidx.compose.foundation:foundation", version.ref = "composeFoundation" }
 androidx-activityCompose = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
 androidx-composeNavigation = { module = "androidx.navigation:navigation-compose", version.ref = "composeNavigation" }
 androidx-hiltNavigationCompose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "androidHiltNavigationCompose" }
