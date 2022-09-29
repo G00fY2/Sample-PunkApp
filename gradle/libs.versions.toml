@@ -30,7 +30,7 @@ daggerHilt = "2.44"
 androidHiltNavigationCompose = "1.0.0"
 
 detekt = "1.22.0-RC1"
-twitterComposeRules = "0.0.13"
+twitterComposeRules = "0.0.16"
 
 [libraries]
 androidx-composeMaterial = { module = "androidx.compose.material:material", version.ref = "composeMaterial" }
