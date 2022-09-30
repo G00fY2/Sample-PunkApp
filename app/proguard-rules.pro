@@ -26,8 +26,8 @@
 # @Serializable and @Polymorphic are used at runtime for polymorphic serialization.
 -keepattributes RuntimeVisibleAnnotations,AnnotationDefault
 
-# https://www.guardsquare.com/blog/eliminating-data-leaks-caused-by-kotlin-assertions
 # Remove Kotlin assertions
+# https://www.guardsquare.com/blog/eliminating-data-leaks-caused-by-kotlin-assertions
 -assumenosideeffects class kotlin.jvm.internal.Intrinsics {
 	public static void checkNotNull(...);
 	public static void checkExpressionValueIsNotNull(...);
@@ -42,4 +42,16 @@
 	public static void throwAssert(...);
 	public static void throwIllegalArgument(...);
 	public static void throwIllegalState(...);
+}
+
+# Remove Android Logging
+# https://community.guardsquare.com/t/how-to-remove-debug-logging-with-proguard/360
+-assumenosideeffects class android.util.Log {
+    public static boolean isLoggable(java.lang.String, int);
+    public static int v(...);
+    public static int i(...);
+    public static int w(...);
+    public static int d(...);
+    public static int e(...);
+    public static int wtf(...);
 }
