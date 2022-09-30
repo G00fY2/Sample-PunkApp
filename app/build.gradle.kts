@@ -49,7 +49,7 @@ dependencies {
   implementation(libs.androidx.composeMaterial)
   debugImplementation(libs.androidx.composeUiTooling)
   implementation(libs.androidx.composeUiToolingPreview)
-  debugImplementation(libs.androidx.composeFoundation)
+  implementation(libs.androidx.composeFoundation)
   implementation(libs.androidx.composeNavigation)
 
   // UI
