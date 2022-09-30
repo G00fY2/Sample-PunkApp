@@ -28,13 +28,13 @@ subprojects {
     add("detektPlugins", rootProject.libs.misc.twitterComposeRules)
   }
   tasks.withType<Detekt>().configureEach {
-    jvmTarget = "11"
+    jvmTarget = JavaVersion.VERSION_11.toString()
   }
   tasks.withType<KotlinCompile>().configureEach {
     kotlinOptions {
       allWarningsAsErrors = true
       freeCompilerArgs = freeCompilerArgs + "-progressive"
-      jvmTarget = "11"
+      jvmTarget = JavaVersion.VERSION_11.toString()
     }
   }
   plugins.withType<BasePlugin>().configureEach {
