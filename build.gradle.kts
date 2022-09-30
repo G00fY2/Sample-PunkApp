@@ -7,8 +7,9 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
   alias(libs.plugins.android.application) apply false
-  alias(libs.plugins.kotlin.androidGradle) apply false
-  alias(libs.plugins.kotlin.serializationGradle) apply false
+  alias(libs.plugins.kotlin.android) apply false
+  alias(libs.plugins.kotlin.serialization) apply false
+  alias(libs.plugins.kotlin.kapt) apply false
   alias(libs.plugins.dagger.hilt) apply false
   alias(libs.plugins.misc.detekt) apply false
   alias(libs.plugins.misc.gradleVersions)
