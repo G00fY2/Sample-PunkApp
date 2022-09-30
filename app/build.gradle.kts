@@ -18,6 +18,8 @@ android {
     versionCode = 1
     versionName = "1.0"
 
+    resourceConfigurations.add("en")
+
     buildConfigField("String", "BASE_URL", "\"https://api.punkapi.com/v2/\"")
   }
   buildTypes {
