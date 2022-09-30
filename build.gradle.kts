@@ -1,4 +1,5 @@
 import com.android.build.gradle.BaseExtension
+import com.android.build.gradle.BasePlugin
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
@@ -35,7 +36,7 @@ subprojects {
       jvmTarget = "11"
     }
   }
-  afterEvaluate {
+  plugins.withType<BasePlugin>().configureEach {
     extensions.configure<BaseExtension> {
       compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
