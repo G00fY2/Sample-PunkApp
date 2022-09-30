@@ -1,5 +1,6 @@
 package com.g00fy2.punkapp.di
 
+import android.content.Context
 import com.g00fy2.punkapp.BuildConfig
 import com.g00fy2.punkapp.model.datasource.web.BeerDatasource
 import com.g00fy2.punkapp.model.datasource.web.BeerDatasourceImpl
@@ -11,6 +12,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
@@ -21,6 +23,8 @@ import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
+import okhttp3.Cache
+import okhttp3.OkHttpClient
 import timber.log.Timber
 
 @Module(includes = [BackendStaticModule::class])
@@ -42,8 +46,11 @@ abstract class BackendModule {
 object BackendStaticModule {
 
   @Provides
-  fun provideKtorHttpClient(): HttpClient {
+  fun provideKtorHttpClient(okHttpClient: OkHttpClient): HttpClient {
     return HttpClient(OkHttp) {
+      engine {
+        preconfigured = okHttpClient
+      }
       defaultRequest {
         url(BuildConfig.BASE_URL)
       }
@@ -67,5 +74,17 @@ object BackendStaticModule {
         level = LogLevel.ALL
       }
     }
+  }
+
+  @Provides
+  fun provideOkHttpClient(@ApplicationContext context: Context): OkHttpClient {
+    return OkHttpClient.Builder()
+      .cache(
+        Cache(
+          directory = context.cacheDir.resolve("http_cache"),
+          maxSize = 50L * 1024L * 1024L // 50 MiB
+        )
+      )
+      .build()
   }
 }
