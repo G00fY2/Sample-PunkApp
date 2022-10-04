@@ -18,9 +18,9 @@ plugins {
 subprojects {
   apply(plugin = rootProject.libs.plugins.misc.detekt.get().pluginId)
   extensions.configure<DetektExtension> {
-    toolVersion = rootProject.libs.versions.detekt.get()
-    config = files("$rootDir/detekt.yml")
     buildUponDefaultConfig = true
+    allRules = true
+    config = files("$rootDir/detekt.yml")
     ignoredBuildTypes = listOf("release")
   }
   dependencies {
