@@ -2,7 +2,6 @@ package com.g00fy2.punkapp.di
 
 import android.content.Context
 import android.os.Looper
-import android.os.Message
 import com.g00fy2.punkapp.BuildConfig
 import com.g00fy2.punkapp.model.datasource.web.BeerDatasource
 import com.g00fy2.punkapp.model.datasource.web.BeerDatasourceImpl
@@ -11,7 +10,6 @@ import com.g00fy2.punkapp.model.datastore.BeerDatastoreImpl
 import com.g00fy2.punkapp.model.transformer.BeerTransformer
 import com.g00fy2.punkapp.model.transformer.BeerTransformerImpl
 import dagger.Binds
-import dagger.Lazy
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,7 +28,6 @@ import okhttp3.Cache
 import okhttp3.OkHttpClient
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
-import kotlin.contracts.contract
 
 @Module(includes = [BackendStaticModule::class])
 @InstallIn(SingletonComponent::class)
