@@ -11,6 +11,7 @@ import com.g00fy2.punkapp.ui.beers.Beers
 fun PunkMain() {
   val navController = rememberNavController()
 
+  @Suppress("ViewModelInjection")
   NavHost(navController, "home") {
     composable("home") { backStackEntry ->
       val viewModel = hiltViewModel<MainViewModel>(backStackEntry)
