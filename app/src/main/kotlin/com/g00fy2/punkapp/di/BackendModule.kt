@@ -1,6 +1,8 @@
 package com.g00fy2.punkapp.di
 
 import android.content.Context
+import android.os.Looper
+import android.os.Message
 import com.g00fy2.punkapp.BuildConfig
 import com.g00fy2.punkapp.model.datasource.web.BeerDatasource
 import com.g00fy2.punkapp.model.datasource.web.BeerDatasourceImpl
@@ -9,6 +11,7 @@ import com.g00fy2.punkapp.model.datastore.BeerDatastoreImpl
 import com.g00fy2.punkapp.model.transformer.BeerTransformer
 import com.g00fy2.punkapp.model.transformer.BeerTransformerImpl
 import dagger.Binds
+import dagger.Lazy
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,6 +29,8 @@ import kotlinx.serialization.json.Json
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import timber.log.Timber
+import java.util.concurrent.TimeUnit
+import kotlin.contracts.contract
 
 @Module(includes = [BackendStaticModule::class])
 @InstallIn(SingletonComponent::class)
@@ -47,6 +52,7 @@ object BackendStaticModule {
 
   @Provides
   fun provideKtorHttpClient(okHttpClient: OkHttpClient): HttpClient {
+    checkMainThread { "Instantiating Ktor HttpClient on main thread" }
     return HttpClient(OkHttp) {
       engine {
         preconfigured = okHttpClient
@@ -71,20 +77,35 @@ object BackendStaticModule {
             Timber.d(message)
           }
         }
-        level = LogLevel.ALL
+        level = LogLevel.HEADERS
       }
     }
   }
 
   @Provides
-  fun provideOkHttpClient(@ApplicationContext context: Context): OkHttpClient {
+  fun provideOkHttpClient(cache: Cache): OkHttpClient {
+    checkMainThread { "Instantiating OkHttpClient on main thread" }
     return OkHttpClient.Builder()
-      .cache(
-        Cache(
-          directory = context.cacheDir.resolve("http_cache"),
-          maxSize = 50L * 1024L * 1024L // 50 MiB
-        )
-      )
+      .cache(cache)
+      .followRedirects(true)
+      .followSslRedirects(false)
+      .retryOnConnectionFailure(true)
+      .connectTimeout(15, TimeUnit.SECONDS)
+      .readTimeout(15, TimeUnit.SECONDS)
+      .writeTimeout(15, TimeUnit.SECONDS)
       .build()
+  }
+
+  @Provides
+  fun provideOkHttpCache(@ApplicationContext context: Context): Cache {
+    checkMainThread { "Instantiating OkHttp Cache on main thread" }
+    return Cache(
+      directory = context.cacheDir.resolve("http_cache"),
+      maxSize = 50L * 1024L * 1024L // 50 MiB
+    )
+  }
+
+  private fun checkMainThread(lazyMessage: () -> String) {
+    check(Looper.myLooper() != Looper.getMainLooper(), lazyMessage)
   }
 }

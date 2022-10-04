@@ -9,13 +9,10 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
-class BeerDatastoreImpl @Inject constructor() : BeerDatastore {
-
-  @Inject
-  lateinit var beerDatasource: BeerDatasource
-
-  @Inject
-  lateinit var beerTransformer: BeerTransformer
+class BeerDatastoreImpl @Inject constructor(
+  val beerDatasource: BeerDatasource,
+  val beerTransformer: BeerTransformer
+) : BeerDatastore {
 
   override fun getAllBeers(): Flow<List<Beer>> {
     return flow {

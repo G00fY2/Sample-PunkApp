@@ -6,6 +6,7 @@ import coil.ImageLoaderFactory
 import coil.disk.DiskCache
 import coil.memory.MemoryCache
 import coil.util.DebugLogger
+import dagger.Lazy
 import dagger.hilt.android.HiltAndroidApp
 import okhttp3.OkHttpClient
 import timber.log.Timber
@@ -15,7 +16,7 @@ import javax.inject.Inject
 class PunkApplication : Application(), ImageLoaderFactory {
 
   @Inject
-  lateinit var okHttpClient: OkHttpClient
+  lateinit var okHttpClient: Lazy<OkHttpClient>
 
   override fun onCreate() {
     super.onCreate()
@@ -38,7 +39,7 @@ class PunkApplication : Application(), ImageLoaderFactory {
           .maximumMaxSizeBytes(250L * 1024 * 1024) // 250MB max
           .build()
       }
-      .okHttpClient { okHttpClient }
+      .okHttpClient { okHttpClient.get() }
       .respectCacheHeaders(false) // always read from/write to the disk cache
       .apply { if (BuildConfig.DEBUG) logger(DebugLogger()) }
       .build()
