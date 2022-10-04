@@ -53,7 +53,7 @@ fun BeerCard(beer: Beer, modifier: Modifier = Modifier) {
 
 @Preview(showBackground = true)
 @Composable
-fun MessageCardPreview() {
+private fun MessageCardPreview() {
   PunkAppTheme {
     BeerCard(
       Beer(
@@ -70,7 +70,7 @@ fun MessageCardPreview() {
 
 @Preview(showBackground = true)
 @Composable
-fun MessageCardDarkPreview() {
+private fun MessageCardDarkPreview() {
   PunkAppTheme(darkTheme = true) {
     BeerCard(
       Beer(

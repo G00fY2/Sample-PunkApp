@@ -16,6 +16,8 @@ style:
     active: false
   NewLineAtEndOfFile:
     active: false
+  UnusedPrivateMember:
+    ignoreAnnotated: [ 'Preview' ]
 
 TwitterCompose:
   CompositionLocalAllowlist:
