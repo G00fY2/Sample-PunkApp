@@ -22,7 +22,7 @@ composeNavigation = "2.6.0-alpha01"
 
 materialDesign = "1.8.0-alpha01"
 
-coil = "2.2.1"
+coil = "2.2.2"
 
 timber = "5.0.1"
 
@@ -30,7 +30,7 @@ daggerHilt = "2.44"
 androidHiltNavigationCompose = "1.0.0"
 
 detekt = "1.22.0-RC1"
-twitterComposeRules = "0.0.17"
+twitterComposeRules = "0.0.18"
 
 [libraries]
 androidx-composeMaterial = { module = "androidx.compose.material:material", version.ref = "composeMaterial" }
