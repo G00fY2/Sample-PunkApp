@@ -53,6 +53,7 @@ dependencies {
   implementation(libs.androidx.composeUiToolingPreview)
   implementation(libs.androidx.composeFoundation)
   implementation(libs.androidx.composeNavigation)
+  implementation(libs.androidx.lifecycleRuntimeCompose)
 
   // UI
   implementation(libs.ui.materialDesign)
