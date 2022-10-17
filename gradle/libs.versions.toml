@@ -30,7 +30,7 @@ timber = "5.0.1"
 daggerHilt = "2.44"
 androidHiltNavigationCompose = "1.0.0"
 
-detekt = "1.22.0-RC1"
+detekt = "1.22.0-RC2"
 twitterComposeRules = "0.0.20"
 
 [libraries]
