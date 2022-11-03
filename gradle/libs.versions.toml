@@ -4,7 +4,7 @@ androidconfig-compileSdk = "33"
 androidconfig-targetSdk = "33"
 androidconfig-buildTools = "33.0.0"
 
-androidGradle = "8.0.0-alpha06"
+androidGradle = "8.0.0-alpha07"
 kotlin = "1.7.20"
 
 gradleVersions = "0.43.0"
