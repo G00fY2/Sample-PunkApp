@@ -6,6 +6,7 @@ import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
+import java.util.*
 import javax.inject.Inject
 
 class BeerDatasourceImpl @Inject constructor(private val httpClient: Lazy<HttpClient>) : BeerDatasource {
@@ -16,6 +17,7 @@ class BeerDatasourceImpl @Inject constructor(private val httpClient: Lazy<HttpCl
     return httpClient.get().get("beers") {
       parameter("page", page)
       parameter("per_page", perPage)
+      parameter("test", Date().toString())
     }.body()
   }
 

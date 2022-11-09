@@ -1,5 +1,5 @@
 build:
-  maxIssues: 10
+  maxIssues: 0
 formatting:
   android: true
   Indentation:
@@ -18,3 +18,5 @@ style:
     active: false
   UnusedPrivateMember:
     ignoreAnnotated: [ 'Preview' ]
+  WildcardImport:
+    excludeImports: []
