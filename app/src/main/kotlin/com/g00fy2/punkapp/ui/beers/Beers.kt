@@ -12,12 +12,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.g00fy2.punkapp.ui.main.MainUiState
 import com.g00fy2.punkapp.ui.main.MainViewModel
 
-@OptIn(ExperimentalLifecycleComposeApi::class)
 @Composable
 fun BeersRoute(
   viewModel: MainViewModel,
