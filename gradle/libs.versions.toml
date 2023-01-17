@@ -4,7 +4,7 @@ androidconfig-compileSdk = "33"
 androidconfig-targetSdk = "33"
 androidconfig-buildTools = "33.0.1"
 
-androidGradle = "8.0.0-alpha11"
+androidGradle = "8.1.0-alpha01"
 kotlin = "1.8.0"
 
 gradleVersions = "0.44.0"
@@ -13,7 +13,7 @@ coroutines = "1.6.4"
 kotlinxSerialization = "1.4.1"
 ktor = "2.2.2"
 
-composeCompiler = "1.4.0-dev-k1.8.0-33c0ad36f83"
+composeCompiler = "1.4.0"
 composeUi = "1.4.0-alpha04"
 composeMaterial = "1.4.0-alpha04"
 composeFoundation = "1.4.0-alpha04"
